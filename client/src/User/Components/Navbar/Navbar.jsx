@@ -175,7 +175,7 @@ export default function Navbar() {
                 <div className="flex px-4 pb-2 pt-5">
                   <button
                     type="button"
-                    className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                    className=" relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 "
                     onClick={() => setOpen(false)}
                   >
                     <span className="absolute -inset-0.5" />
@@ -194,8 +194,8 @@ export default function Navbar() {
                           className={({ selected }) =>
                             classNames(
                               selected
-                                ? "border-indigo-600 text-indigo-600"
-                                : "border-transparent text-gray-900",
+                                ? "border-indigo-600 text-indigo-600 border-transparent"
+                                : "border-transparent text-sky-600",
                               "flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
                             )
                           }
@@ -308,9 +308,10 @@ export default function Navbar() {
         </Dialog>
       </Transition.Root>
 
-      <header className="relative bg-white w-screen">
-        <nav aria-label="Top" className=" max-w-7xl  ">
-          <div className="border-b border-gray-200 w-screen px-4">
+      {/* NAVBAR */}
+      <header className="relative bg-white">
+        <nav aria-label="Top" className="mx-auto max-w-full px-4 sm:px-6  ">
+          <div className="border-b border-gray-200   ">
             <div className="flex h-16 items-center">
               <button
                 type="button"
@@ -335,7 +336,7 @@ export default function Navbar() {
               </div>
 
               {/* Flyout menus */}
-              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
+              <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch z-50 ">
                 <div className="flex h-full space-x-8">
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
@@ -446,7 +447,7 @@ export default function Navbar() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {/* {navigation.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -454,7 +455,7 @@ export default function Navbar() {
                     >
                       {page.name}
                     </a>
-                  ))}
+                  ))} */}
                 </div>
               </Popover.Group>
 

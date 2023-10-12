@@ -3,7 +3,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
 const items = [
-  <div className="flex justify-center">
+  <div className="flex justify-center cursor-pointer">
     <img
       src="https://img.freepik.com/premium-vector/red-banner-with-hot-sale-text-suitable-advertising-posters-online-product-sales_626143-21.jpg?w=1380"
       alt="carousel"
@@ -12,7 +12,7 @@ const items = [
       role="presentation"
     />
   </div>,
-  <div className="flex justify-center">
+  <div className="cursor-pointer flex justify-center">
     <img
       src="https://img.freepik.com/premium-vector/red-banner-with-hot-sale-text-suitable-advertising-posters-online-product-sales_626143-21.jpg?w=1380"
       alt="carousel"
@@ -21,7 +21,7 @@ const items = [
       role="presentation"
     />
   </div>,
-  <div className="flex justify-center">
+  <div className="flex justify-center cursor-pointer">
     <img
       src="https://img.freepik.com/premium-vector/red-banner-with-hot-sale-text-suitable-advertising-posters-online-product-sales_626143-21.jpg?w=1380"
       alt="carousel"
@@ -30,7 +30,7 @@ const items = [
       role="presentation"
     />
   </div>,
-  <div className="flex justify-center">
+  <div className="flex justify-center cursor-pointer">
     <img
       src="https://img.freepik.com/premium-vector/red-banner-with-hot-sale-text-suitable-advertising-posters-online-product-sales_626143-21.jpg?w=1380"
       alt="carousel"

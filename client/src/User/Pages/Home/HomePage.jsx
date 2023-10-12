@@ -1,10 +1,11 @@
+import HomeCards from "../../Components/HomeCard/HomeCards";
 import Homecarousel from "../../Components/Homecarousel/Homecarousel";
 
 const HomePage = () => {
   return (
     <div>
       <Homecarousel />
-      <div>other div</div>
+      <div><HomeCards/></div>
     </div>
   );
 };
