@@ -1,5 +1,4 @@
 import "./App.css";
-import Homecarousel from "./User/Components/Homecarousel/Homecarousel";
 import Navbar from "./User/Components/Navbar/Navbar";
 import HomePage from "./User/Pages/Home/HomePage";
 
