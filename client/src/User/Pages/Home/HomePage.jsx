@@ -5,7 +5,13 @@ const HomePage = () => {
   return (
     <div>
       <Homecarousel />
-      <div><HomeCards/></div>
+      <div><HomeCards/>
+      <HomeCards/>
+      <HomeCards/>
+      <HomeCards/>
+      <HomeCards/>
+      <HomeCards/>
+      </div>
     </div>
   );
 };
