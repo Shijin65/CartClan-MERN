@@ -197,7 +197,7 @@ export default function Product() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto  px-4 sm:px-6 lg:px-8">
+        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5">
           <div className="flex  justify-between border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               New Arrivals
@@ -337,10 +337,10 @@ export default function Product() {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">
-                <div className="flex flex-wrap items-start gap-5">
+              <div className="lg:col-span-3 ">
+                <div className="flex flex-wrap items-center justify-center gap-5">
                   {ProductData.Dresses.map((Item) => 
-                    <ProductCard />
+                    <ProductCard Product={Item} />
                   )}
                 </div>
               </div>

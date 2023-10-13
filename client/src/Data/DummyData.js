@@ -1,7 +1,7 @@
 export const ProductData ={
-  "dresses": [
+  Dresses: [
     {
-      "image_url": "https://example.com/dress1.jpg",
+      "image_url": "https://i.pinimg.com/736x/9b/68/6e/9b686eb2226b777c7d78ca004a855c94.jpg",
       "title": "Men's Formal Suit",
       "brand": "FashionMasters",
       "price": 149.99,
@@ -23,7 +23,7 @@ export const ProductData ={
       ]
     },
     {
-      "image_url": "https://example.com/dress2.jpg",
+      "image_url": "https://i.pinimg.com/236x/25/8d/bb/258dbb1d8bc119b36b0497d79fc1b2bc.jpg",
       "title": "Casual Denim Jacket",
       "brand": "UrbanChic",
       "price": 79.99,
@@ -45,7 +45,7 @@ export const ProductData ={
       ]
     },
     {
-      "image_url": "https://example.com/dress3.jpg",
+      "image_url": "https://i.pinimg.com/236x/ed/64/08/ed6408fc4a00bb1821b096c772e74d98.jpg",
       "title": "Men's Tuxedo",
       "brand": "ElegantWear",
       "price": 199.99,
@@ -67,7 +67,7 @@ export const ProductData ={
       ]
     },
     {
-      "image_url": "https://example.com/dress4.jpg",
+      "image_url": "https://i.pinimg.com/236x/8b/38/bb/8b38bbac8a5e7506688494962bc5c0c4.jpg",
       "title": "Men's Summer Shirt",
       "brand": "CoolStyles",
       "price": 34.99,
@@ -89,7 +89,7 @@ export const ProductData ={
       ]
     },
     {
-      "image_url": "https://example.com/dress5.jpg",
+      "image_url": "https://img.freepik.com/free-photo/handsome-man-leather-jacket_144627-3574.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=ais",
       "title": "Men's Leather Jacket",
       "brand": "ClassicLeathers",
       "price": 199.99,
@@ -111,7 +111,7 @@ export const ProductData ={
       ]
     },
     {
-      "image_url": "https://example.com/dress6.jpg",
+      "image_url": "https://img.freepik.com/free-photo/low-section-man-standing-rock-against-blue-sky_23-2148182853.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=ais",
       "title": "Men's Slim Fit Jeans",
       "brand": "TrendyDenim",
       "price": 69.99,
