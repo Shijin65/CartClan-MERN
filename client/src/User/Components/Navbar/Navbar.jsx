@@ -145,7 +145,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-white w-screen">
+    <div className=" w-screen">
+
+
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -158,7 +160,7 @@ export default function Navbar() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 light:bg-black light:bg-opacity-25" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-40 flex">
@@ -171,7 +173,7 @@ export default function Navbar() {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+              <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto dark:bg-black dark:text-white bg-white pb-12 shadow-xl">
                 <div className="flex px-4 pb-2 pt-5">
                   <button
                     type="button"
@@ -217,7 +219,7 @@ export default function Navbar() {
                               key={item.name}
                               className="group relative text-sm"
                             >
-                              <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                              <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg light:bg-gray-100 group-hover:opacity-75">
                                 <img
                                   src={item.imageSrc}
                                   alt={item.imageAlt}
@@ -309,13 +311,13 @@ export default function Navbar() {
       </Transition.Root>
 
       {/* NAVBAR */}
-      <header className="relative bg-white">
+      <header className="relative dark:bg-black dark:text-white bg-white ">
         <nav aria-label="Top" className="mx-auto max-w-full px-4 sm:px-6  ">
           <div className="border-b border-gray-200   ">
             <div className="flex h-16 items-center">
               <button
                 type="button"
-                className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="relative rounded-md dark:bg-black dark:text-white bg-white p-2 text-gray-400 lg:hidden"
                 onClick={() => setOpen(true)}
               >
                 <span className="absolute -inset-0.5" />
@@ -347,7 +349,7 @@ export default function Navbar() {
                               className={classNames(
                                 open
                                   ? "border-indigo-600 text-indigo-600"
-                                  : "border-transparent text-gray-700 hover:text-gray-800",
+                                  : "border-transparent dark:text-white hover:text-gray-400",
                                 "relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
                               )}
                             >
@@ -367,11 +369,11 @@ export default function Navbar() {
                             <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
-                                className="absolute inset-0 top-1/2 bg-white shadow"
+                                className="absolute inset-0 top-1/2 dark:bg-black dark:text-white bg-white shadow"
                                 aria-hidden="true"
                               />
 
-                              <div className="relative bg-white">
+                              <div className="relative dark:bg-black dark:text-white bg-white">
                                 <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
                                     <div className="col-start-2 grid grid-cols-2 gap-x-8">
@@ -380,7 +382,7 @@ export default function Navbar() {
                                           key={item.name}
                                           className="group relative text-base sm:text-sm"
                                         >
-                                          <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                                          <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg light:bg-gray-100 group-hover:opacity-75">
                                             <img
                                               src={item.imageSrc}
                                               alt={item.imageAlt}
@@ -389,7 +391,7 @@ export default function Navbar() {
                                           </div>
                                           <a
                                             href={item.href}
-                                            className="mt-6 block font-medium text-gray-900"
+                                            className="mt-6 block font-medium text-gray-500"
                                           >
                                             <span
                                               className="absolute inset-0 z-10"
@@ -411,7 +413,7 @@ export default function Navbar() {
                                         <div key={section.name}>
                                           <p
                                             id={`${section.name}-heading`}
-                                            className="font-medium text-gray-900"
+                                            className="font-medium text-gray-500"
                                           >
                                             {section.name}
                                           </p>
@@ -427,7 +429,7 @@ export default function Navbar() {
                                               >
                                                 <a
                                                   href={item.href}
-                                                  className="hover:text-gray-800"
+                                                  className="hover:text-gray-500"
                                                 >
                                                   {item.name}
                                                 </a>
@@ -465,14 +467,14 @@ export default function Navbar() {
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <a
                     href="/"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="text-sm font-medium dark:text-white text-gray-700 hover:text-gray-800"
                   >
                     Sign in
                   </a>
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                  <span className="h-6 w-px light:bg-gray-200" aria-hidden="true" />
                   <a
                     href="/"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                    className="text-sm font-medium dark:text-white text-gray-700 hover:text-gray-800"
                   >
                     Create account
                   </a>
@@ -480,7 +482,7 @@ export default function Navbar() {
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <a href="/" className="p-2 text-gray-400 hover:text-gray-500">
+                  <a href="/" className="p-2 dark:text-white text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon
                       className="h-6 w-6"

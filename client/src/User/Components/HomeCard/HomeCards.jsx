@@ -1,156 +1,35 @@
 import React from "react";
+import { ProductData } from "../../../Data/DummyData";
 
 const HomeCards = () => {
   return (
-    <div>
+    <div className="ps-10">
       
-      <div className="flex gap-5 mt-5 p-10 overflow-x-scroll no-scrollbar">
+      <h3 className=" text-lg text-start ms-10 flex items-center ">
+          New Collection
+        </h3>
+      <div className="flex gap-5 mt-5  overflow-x-scroll no-scrollbar py-5">
         {/* cards */}
-<h3 className=" text-lg text-start ms-10 flex items-center ">New Collection</h3>        
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg   cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
-
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
-
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
-
         
-
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
+        {ProductData.Dresses.map((item) => (
+          <span>
+            <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-sm p-5 h-full  cursor-pointer dark:shadow-white ms-2 ">
+              <figure className="h-60">
+                <img
+                  src={item.image_url}
+                  alt="Shoes"
+                  className="object-cover h-60"
+                />
+              </figure>
+              <div className="card-body flex-row justify-between ms-5">
+                <h2 className="text-start ">{item.title}</h2>
+                <div className="card-actions justify-end">
+                  <button className="btn glass text-success btn-sm">{item.discounted_price}$</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        </span>
-
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
-
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
-
-        <span>
-        <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-lg  cursor-pointer">
-          <figure className="h-60">
-            <img
-              src="https://img.freepik.com/free-photo/basic-green-shirt-men-rsquo-s-fashion-apparel-studio-shoot_53876-101197.jpg?size=626&ext=jpg&ga=GA1.1.1015071250.1697119014&semt=sph"
-              alt="Shoes"
-              className="h-60"
-            />
-          </figure>
-          <div className="card-body flex-row justify-between">
-            <h2 className="card-title">Shirt!</h2>
-            <div className="card-actions justify-end">
-              <button className="btn glass text-success btn-sm">25$</button>
-            </div>
-          </div>
-        </div>
-        </span>
+          </span>
+        ))}
       </div>
     </div>
   );
