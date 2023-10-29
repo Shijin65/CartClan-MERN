@@ -3,7 +3,7 @@ import React from "react";
 function Login() {
   return (
     <div className="flex justify-center dark:text-white ">
-      <div class="border-b border-gray-900/10 pb-12 bg-base-100 p-10 shadow-sm my-5 rounded-md dark:shadow-white md:w-1/2 w-screen ">
+      <div class="border-b border-gray-900/10 pb-12 bg-base-100 p-10 shadow-sm my-10 rounded-md dark:shadow-white md:w-1/2 w-screen ">
         <h2 class=" leading-7 font-extrabold  text-2xl">LOGIN</h2>
 
         <div class="mt-10 grid grid-cols-1 ">
