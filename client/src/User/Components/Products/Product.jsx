@@ -12,7 +12,7 @@ import { ProductData } from "../../../Data/DummyData";
 import ProductCard from "./ProductCard";
 
 const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
+  { name: "Most Popular", href: "#", current: false },
   { name: "Best Rating", href: "#", current: false },
   { name: "Newest", href: "#", current: false },
   { name: "Price: Low to High", href: "#", current: false },
@@ -37,7 +37,7 @@ const filters = [
     options: [
       { value: "white", label: "White", checked: false },
       { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
+      { value: "blue", label: "Blue", checked: false },
       { value: "brown", label: "Brown", checked: false },
       { value: "green", label: "Green", checked: false },
       { value: "purple", label: "Purple", checked: false },
@@ -48,7 +48,7 @@ const filters = [
     id: "size",
     name: "Size",
     options: [
-      { value: "S", label: "S", checked: true },
+      { value: "S", label: "S", checked: false },
       { value: "M", label: "M", checked: false },
       { value: "L", label: "L", checked: false },
       { value: "XL", label: "XL", checked: false },
@@ -66,7 +66,7 @@ export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -97,14 +97,14 @@ export default function Product() {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto  py-4 pb-12 shadow-xl">
                   <div className="flex items-center justify-between px-4">
                     <h2 className="text-lg font-medium text-gray-900">
                       Filters
                     </h2>
                     <button
                       type="button"
-                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md p-2 text-gray-400"
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Close menu</span>
@@ -180,13 +180,13 @@ export default function Product() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5">
+        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white">
           <div className="flex  justify-between border-b border-gray-200 pb-6">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-4xl font-bold tracking-tight ">
               New Arrivals
             </h1>
 
-            <div className="flex items-center">
+            <div className="flex items-center ">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -250,12 +250,12 @@ export default function Product() {
             </div>
           </div>
 
-          <section aria-labelledby="products-heading" className="pb-24 pt-6">
+          <section aria-labelledby="products-heading" className="pb-24 pt-6 ">
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 ">
               
               {/* Filters */}
               
@@ -272,8 +272,8 @@ export default function Product() {
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">
+                          <Disclosure.Button className="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500">
+                            <span className="font-medium ">
                               {section.name}
                             </span>
                             <span className="ml-6 flex items-center">

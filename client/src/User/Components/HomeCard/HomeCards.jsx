@@ -13,7 +13,7 @@ const HomeCards = () => {
         
         {ProductData.Dresses.map((item) => (
           <span>
-            <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-sm p-5 h-full  cursor-pointer dark:shadow-white ms-2 hover:-translate-y-2 tra ">
+            <div className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-sm p-5 h-full  cursor-pointer dark:shadow-white ms-2 hover:-translate-y-2 ">
               <figure className="h-60">
                 <img
                   src={item.image_url}
