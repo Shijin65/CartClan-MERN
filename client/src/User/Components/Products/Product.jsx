@@ -43,7 +43,7 @@ const filters = [
       { value: "purple", label: "Purple", checked: false },
     ],
   },
-  
+
   {
     id: "size",
     name: "Size",
@@ -53,7 +53,6 @@ const filters = [
       { value: "L", label: "L", checked: false },
       { value: "XL", label: "XL", checked: false },
       { value: "XXL", label: "XXL", checked: false },
-      
     ],
   },
 ];
@@ -66,7 +65,7 @@ export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
-    <div className="">
+    <div className=''>
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -182,9 +181,7 @@ export default function Product() {
 
         <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white">
           <div className="flex  justify-between border-b border-gray-200 pb-6">
-            <h1 className="text-4xl font-bold tracking-tight ">
-              New Arrivals
-            </h1>
+            <h1 className="text-4xl font-bold tracking-tight ">New Arrivals</h1>
 
             <div className="flex items-center ">
               <Menu as="div" className="relative inline-block text-left">
@@ -256,9 +253,8 @@ export default function Product() {
             </h2>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 ">
-              
               {/* Filters */}
-              
+
               <form className="hidden lg:block">
                 <h1 className="text-start font-bold opacity-60">Filters</h1>
                 <h3 className="sr-only">Categories</h3>
@@ -273,9 +269,7 @@ export default function Product() {
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button className="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium ">
-                              {section.name}
-                            </span>
+                            <span className="font-medium ">{section.name}</span>
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon
@@ -325,9 +319,11 @@ export default function Product() {
               {/* Product grid */}
               <div className="lg:col-span-3 ">
                 <div className="flex flex-wrap items-center justify-center gap-5">
-                  {ProductData.Dresses.map((Item) => 
-                    <ProductCard Product={Item} />
-                  )}
+                  {ProductData.Dresses.map((Item) => (
+                    <div>
+                    <ProductCard Product={Item} /></div>
+                  ))}
+                  
                 </div>
               </div>
             </div>

@@ -10,9 +10,9 @@ import { Routes as Switch,Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
       <Navbar />
-      <div>
+      <div >
         <Switch>
         <Route path="/" Component={HomePage}/>
         <Route path="/register" Component={Register}/>
