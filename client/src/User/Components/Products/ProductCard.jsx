@@ -4,7 +4,7 @@ const ProductCard = ({ Product }) => {
 
   return (
     
-      <div
+      <span><div
         className="card card-compact w-52  bg-base-100  hover:shadow-xl shadow-md  cursor-pointer p-5 dark:shadow-white ms-2 hover:-translate-y-2 dark:text-white"
         
       >
@@ -28,7 +28,7 @@ const ProductCard = ({ Product }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div></span>
 
     
     

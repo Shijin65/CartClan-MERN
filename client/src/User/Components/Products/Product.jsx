@@ -26,31 +26,34 @@ const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
 ];
-const singlefilters=[{
-  id: "price",
-  name: "Price",
-  options:[
-    { value: "0-99", label: "$0 To $99", checked: false },
-    { value: "100-199", label: "$100 To $199", checked: false },
-    { value: "200-299", label: "$200 To $399", checked: false },
-    { value: "300-399", label: "$300 To $399", checked: false },
-    { value: "400-499", label: "$400 To $499", checked: false },
-    { value: "500", label: "$500-above", checked: false },
-  ],
-},{
-  id: "discount range",
-  name: "Discount range",
-  options: [
-    { value: "10", label: "10% And Above", checked: false },
-    { value: "20", label: "20% And Above", checked: false },
-    { value: "30", label: "30% And Above", checked: false },
-    { value: "40", label: "40% And Above", checked: false },
-    { value: "50", label: "50% And Above", checked: false },
-    { value: "60", label: "60% And Above", checked: false },
-    { value: "70", label: "70% And Above", checked: false },
-    { value: "80", label: "80% And Above", checked: false },
-  ],
-}]
+const singlefilters = [
+  {
+    id: "price",
+    name: "Price",
+    options: [
+      { value: "0-99", label: "$0 To $99", checked: false },
+      { value: "100-199", label: "$100 To $199", checked: false },
+      { value: "200-299", label: "$200 To $399", checked: false },
+      { value: "300-399", label: "$300 To $399", checked: false },
+      { value: "400-499", label: "$400 To $499", checked: false },
+      { value: "500", label: "$500-above", checked: false },
+    ],
+  },
+  {
+    id: "discount range",
+    name: "Discount range",
+    options: [
+      { value: "10", label: "10% And Above", checked: true },
+      { value: "20", label: "20% And Above", checked: false },
+      { value: "30", label: "30% And Above", checked: false },
+      { value: "40", label: "40% And Above", checked: false },
+      { value: "50", label: "50% And Above", checked: false },
+      { value: "60", label: "60% And Above", checked: false },
+      { value: "70", label: "70% And Above", checked: false },
+      { value: "80", label: "80% And Above", checked: false },
+    ],
+  },
+];
 const filters = [
   {
     id: "color",
@@ -272,57 +275,64 @@ export default function Product() {
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
-
+                                
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 ">
               {/* Filters */}
 
-              <form className="hidden lg:block">
-                <h1 className="text-start font-bold opacity-60">Filters</h1>
+              <form className="hidden lg:block ">
+                <h1 className="text-start  font-bold opacity-60">Filters</h1>
                 <h3 className="sr-only">Categories</h3>
 
-                {singlefilters.map((section) => (<Disclosure as="div" className="border-b border-gray-200 py-6">
-                  {({ open }) => (
-                    <>
-                      <h3 className="-my-3 flow-root">
-                        <Disclosure.Button className="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500">
-                          <span className="font-medium ">{section.name}</span>
-                          <span className="ml-6 flex items-center">
-                            {open ? (
-                              <MinusIcon
-                                className="h-5 w-5"
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <PlusIcon
-                                className="h-5 w-5"
-                                aria-hidden="true"
-                              />
-                            )}
-                          </span>
-                        </Disclosure.Button>
-                      </h3>
-                      <Disclosure.Panel className="pt-6">
-                      <FormControl>
-                        
-                        <RadioGroup
-                          aria-labelledby="demo-radio-buttons-group-label"
-                          defaultValue="female"
-                          name="radio-buttons-group"
-                        >
-                          {section.options.map((option)=>{
+                {singlefilters.map((section) => (
+                  <Disclosure
+                    as="div"
+                    className="border-b border-gray-200 py-6"
+                  >
+                    {({ open }) => (
+                      <>
+                        <h3 className="-my-3 flow-root">
+                          <Disclosure.Button className="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500">
                             
-                            <FormControlLabel value={option.value} control={<Radio/>} label={option.label} />
-                          })}
-                          
-                          
+                            <FormLabel id="demo-radio-buttons-group-label"><span className="font-medium text-gray-400 ">{section.name}</span></FormLabel>
+                            <span className="ml-6 flex items-center">
+                              {open ? (
+                                <MinusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              ) : (
+                                <PlusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              )}
+                            </span>
+                          </Disclosure.Button>
+                        </h3>
 
-                        </RadioGroup>
-                      </FormControl>
-                        
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>))}
+                        <Disclosure.Panel className="pt-6 flex flex-col text-start">
+                          {section.options.map((option,optionIdx) => (
+                            <FormControl>
+                              <RadioGroup
+                                aria-labelledby="demo-radio-buttons-group-label"
+                                defaultValue="female"
+                                name="radio-buttons-group"
+                              >
+                                <FormControlLabel
+                                
+                                  value={option.value}
+                                  control={<Radio />}
+                                  label={option.label}
+                                />
+                              </RadioGroup>
+                              
+                            </FormControl>
+                          ))}
+                        </Disclosure.Panel>
+                      </>
+                    )}
+                  </Disclosure>
+                ))}
 
                 {filters.map((section) => (
                   <Disclosure
@@ -382,11 +392,14 @@ export default function Product() {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3 grid lg:grid-cols-5 md:grid-cols-4 grid-cols-2 gap-5 ">
-                {/* Your content */}
+              <div className="  col-span-3  ">
+                <span>
+                <div className="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-2 gap-5 ">
                 {ProductData.Dresses.map((Item) => (
+                  
                   <ProductCard Product={Item} />
                 ))}
+                </div></span>
               </div>
             </div>
           </section>
