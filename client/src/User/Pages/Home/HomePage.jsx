@@ -7,10 +7,7 @@ const HomePage = () => {
     <div>
       <Homecarousel />
       <div>
-      <HomeCards/>
-      <HomeCards/>
-      <HomeCards/>
-        {/* {item.map((Item)=><HomeCards/>)} */}
+        {item.map((Item)=><HomeCards/>)}
       </div>
       
     </div>
