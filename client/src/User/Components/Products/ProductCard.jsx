@@ -3,9 +3,9 @@ import React, { useState } from "react";
 const ProductCard = ({ Product }) => {
 
   return (
-    <div>
+    
       <div
-        className="card card-compact w-56  bg-base-100  hover:shadow-xl shadow-md  cursor-pointer p-5 dark:shadow-white ms-2 hover:-translate-y-2 dark:text-white"
+        className="card card-compact w-52  bg-base-100  hover:shadow-xl shadow-md  cursor-pointer p-5 dark:shadow-white ms-2 hover:-translate-y-2 dark:text-white"
         
       >
         <figure className="h-60">
@@ -31,7 +31,7 @@ const ProductCard = ({ Product }) => {
       </div>
 
     
-    </div>
+    
   );
 };
 

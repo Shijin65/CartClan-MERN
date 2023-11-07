@@ -311,7 +311,7 @@ export default function Navbar() {
       </Transition.Root>
 
       {/* NAVBAR */}
-      <header className="relative dark:bg-black dark:text-white bg-white ">
+      <header className="relative dark:bg-black dark:text-white bg-white over">
         <nav aria-label="Top" className="mx-auto max-w-full px-4 sm:px-6  ">
           <div className="border-b border-gray-200   ">
             <div className="flex h-16 items-center">

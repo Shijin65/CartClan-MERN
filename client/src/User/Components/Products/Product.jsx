@@ -1,5 +1,11 @@
 import { Fragment, useState } from "react";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  Disclosure,
+  Menu,
+  RadioGroup,
+  Transition,
+} from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -10,6 +16,8 @@ import {
 } from "@heroicons/react/20/solid";
 import { ProductData } from "../../../Data/DummyData";
 import ProductCard from "./ProductCard";
+import Radio from "@mui/material/Radio";
+import { FormControl, FormControlLabel, FormLabel } from "@mui/material";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: false },
@@ -18,19 +26,32 @@ const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
 ];
-
+const singlefilters=[{
+  id: "price",
+  name: "Price",
+  options:[
+    { value: "0-99", label: "$0 To $99", checked: false },
+    { value: "100-199", label: "$100 To $199", checked: false },
+    { value: "200-299", label: "$200 To $399", checked: false },
+    { value: "300-399", label: "$300 To $399", checked: false },
+    { value: "400-499", label: "$400 To $499", checked: false },
+    { value: "500", label: "$500-above", checked: false },
+  ],
+},{
+  id: "discount range",
+  name: "Discount range",
+  options: [
+    { value: "10", label: "10% And Above", checked: false },
+    { value: "20", label: "20% And Above", checked: false },
+    { value: "30", label: "30% And Above", checked: false },
+    { value: "40", label: "40% And Above", checked: false },
+    { value: "50", label: "50% And Above", checked: false },
+    { value: "60", label: "60% And Above", checked: false },
+    { value: "70", label: "70% And Above", checked: false },
+    { value: "80", label: "80% And Above", checked: false },
+  ],
+}]
 const filters = [
-  {
-    id: "price",
-    name: "Price",
-    options: [
-      { value: "20", label: "$0-$99", checked: false },
-      { value: "100", label: "$100-$199", checked: false },
-      { value: "150", label: "$200-$399", checked: false },
-      { value: "200", label: "$400-$599", checked: false },
-      { value: "350", label: "$600-above", checked: false },
-    ],
-  },
   {
     id: "color",
     name: "Color",
@@ -65,7 +86,7 @@ export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
-    <div className=''>
+    <div className=" mx-0">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -179,8 +200,8 @@ export default function Product() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white">
-          <div className="flex  justify-between border-b border-gray-200 pb-6">
+        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white ">
+          <div className="flex justify-between  border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight ">New Arrivals</h1>
 
             <div className="flex items-center ">
@@ -215,7 +236,7 @@ export default function Product() {
                                 option.current
                                   ? "font-medium text-gray-900"
                                   : "text-gray-500",
-                                active ? "bg-gray-100" : "",
+                                active ? "bg-gray-100" : "Discount range",
                                 "block px-4 py-2 text-sm"
                               )}
                             >
@@ -228,7 +249,7 @@ export default function Product() {
                   </Menu.Items>
                 </Transition>
               </Menu>
-
+              {/* View grid */}
               <button
                 type="button"
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
@@ -258,6 +279,50 @@ export default function Product() {
               <form className="hidden lg:block">
                 <h1 className="text-start font-bold opacity-60">Filters</h1>
                 <h3 className="sr-only">Categories</h3>
+
+                {singlefilters.map((section) => (<Disclosure as="div" className="border-b border-gray-200 py-6">
+                  {({ open }) => (
+                    <>
+                      <h3 className="-my-3 flow-root">
+                        <Disclosure.Button className="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium ">{section.name}</span>
+                          <span className="ml-6 flex items-center">
+                            {open ? (
+                              <MinusIcon
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <PlusIcon
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </span>
+                        </Disclosure.Button>
+                      </h3>
+                      <Disclosure.Panel className="pt-6">
+                      <FormControl>
+                        
+                        <RadioGroup
+                          aria-labelledby="demo-radio-buttons-group-label"
+                          defaultValue="female"
+                          name="radio-buttons-group"
+                        >
+                          {section.options.map((option)=>{
+                            
+                            <FormControlLabel value={option.value} control={<Radio/>} label={option.label} />
+                          })}
+                          
+                          
+
+                        </RadioGroup>
+                      </FormControl>
+                        
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>))}
 
                 {filters.map((section) => (
                   <Disclosure
@@ -317,14 +382,11 @@ export default function Product() {
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3 ">
-                <div className="flex flex-wrap items-center justify-center gap-5">
-                  {ProductData.Dresses.map((Item) => (
-                    <div>
-                    <ProductCard Product={Item}/></div>
-                  ))}
-                  
-                </div>
+              <div className="lg:col-span-3 grid lg:grid-cols-5 md:grid-cols-4 grid-cols-2 gap-5 ">
+                {/* Your content */}
+                {ProductData.Dresses.map((Item) => (
+                  <ProductCard Product={Item} />
+                ))}
               </div>
             </div>
           </section>

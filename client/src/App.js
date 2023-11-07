@@ -14,10 +14,10 @@ function App() {
       <Navbar />
       <div >
         <Switch>
-        <Route path="/" Component={HomePage}/>
-        <Route path="/register" Component={Register}/>
-        <Route path="/product" Component={Product}/>
-        <Route path="/login" Component={Login}/>
+        <Route path="/" Component={Product}/>
+        {/* <Route path="/register" Component={Register}/> */}
+        {/* <Route path="/product" Component={Product}/> */}
+        {/* <Route path="/login" Component={Login}/> */}
 
         </Switch>
         {/* <HomePage/>
