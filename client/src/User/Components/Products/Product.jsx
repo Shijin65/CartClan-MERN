@@ -321,7 +321,7 @@ export default function Product() {
                 <div className="flex flex-wrap items-center justify-center gap-5">
                   {ProductData.Dresses.map((Item) => (
                     <div>
-                    <ProductCard Product={Item} /></div>
+                    <ProductCard Product={Item}/></div>
                   ))}
                   
                 </div>

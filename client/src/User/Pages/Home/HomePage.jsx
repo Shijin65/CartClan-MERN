@@ -1,5 +1,3 @@
-
-import { ProductData } from "../../../Data/DummyData";
 import HomeCards from "../../Components/HomeCard/HomeCards";
 import Homecarousel from "../../Components/Homecarousel/Homecarousel";
 
@@ -9,8 +7,10 @@ const HomePage = () => {
     <div>
       <Homecarousel />
       <div>
-        
-        {item.map((Item)=><HomeCards/>)}
+      <HomeCards/>
+      <HomeCards/>
+      <HomeCards/>
+        {/* {item.map((Item)=><HomeCards/>)} */}
       </div>
       
     </div>
