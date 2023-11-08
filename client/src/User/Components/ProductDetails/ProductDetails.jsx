@@ -11,23 +11,23 @@ const product = {
     { id: 2, name: "Clothing", href: "#" },
   ],
   images: [
-    { 
-      id:"pic1",
+    {
+      id: "pic1",
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
       alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
-      id:"pic2",
+      id: "pic2",
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
       alt: "Model wearing plain black basic tee.",
     },
     {
-      id:"pic3",
+      id: "pic3",
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
       alt: "Model wearing plain gray basic tee.",
     },
     {
-      id:"pic4",
+      id: "pic4",
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
       alt: "Model wearing plain white basic tee.",
     },
@@ -38,14 +38,10 @@ const product = {
     { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
   ],
   sizes: [
-    { name: "XXS", inStock: false },
-    { name: "XS", inStock: true },
     { name: "S", inStock: true },
     { name: "M", inStock: true },
     { name: "L", inStock: true },
-    { name: "XL", inStock: true },
-    { name: "2XL", inStock: true },
-    { name: "3XL", inStock: true },
+    { name: "XL", inStock: false },
   ],
   description:
     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
@@ -72,104 +68,53 @@ export default function ProductDetails() {
     <span>
       <div className="">
         <div className="pt-6">
-          <nav aria-label="Breadcrumb">
-            {/* <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {product.breadcrumbs.map((breadcrumb) => (
-              <li key={breadcrumb.id}>
-                <div className="flex items-center">
-                  <a href={breadcrumb.href} className="mr-2 text-sm font-medium ">
-                    {breadcrumb.name}
-                  </a>
-                  <svg
-                    width={16}
-                    height={20}
-                    viewBox="0 0 16 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    className="h-5 w-4 text-gray-300"
-                  >
-                    <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-                  </svg>
-                </div>
-              </li>
-            ))}
-            <li className="text-sm">
-              <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {product.name}
-              </a>
-            </li>
-          </ol>*/}
-          </nav>
+          <nav aria-label="Breadcrumb"></nav>
           <section className="grid grid-cols-1 lg:grid-cols-2 ">
             {/* Image gallery */}
-            {/* <div className="flex flex-col items-center justify-center">
-              <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[30rem]">
-                <img
-                  src={product.images[0].src}
-                  alt={product.images[0].alt}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-
-              <div className="flex flex-wrap gap-x-8">
-                {product.images.map(() => (
-                  <div className="verflow-hidden rounded-lg max-w-[8rem] max-h-[8rem] mt-10 ">
-                    <img
-                      src={product.images[1].src}
-                      alt={product.images[1].alt}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div> */}
-            <span className="">
-              <div className="carousel max-w-[30rem] max-h-[35rem]">
+            <span>
+              <div className="p-5 carousel max-w-[30rem] max-h-[35rem]">
                 {product.images.map((item) => (
-                  <div id={item.id} className="carousel-item w-full">
-                    <img
-                      src={item.src}
-                      className="w-full"
-                    />
+                  <div id={item.id} className="p-5 carousel-item w-full">
+                    <img src={item.src} className="w-full" />
                   </div>
                 ))}
               </div>
               <div className="flex justify-center w-full gap-10">
-              {product.images.map((item) => (
-                <a href={`#${item.id}`} className="">
-                  <div className=" max-w-[5rem] h-[5rem] mt-10 ">
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="h-full w-full object-cover object-center rounded-lg"
-                    />
-                  </div>
-                </a>
-              ))}
+                {product.images.map((item) => (
+                  <a href={`#${item.id}`} className="">
+                    <div className=" max-w-[5rem] h-[5rem] mt-10 ">
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        className="h-full w-full object-cover object-center rounded-lg"
+                      />
+                    </div>
+                  </a>
+                ))}
               </div>
             </span>
 
             {/* Product info */}
-            <div className="text-start mx-auto max-w-2xl px-4 pb-16  lg:max-w-7xl lg:px-8 lg:pb-24 ">
-             
-              <div className="my-10 col-span-2 lg:border-r lg:border-gray-200 lg:pr-8 dark:text-gray-100">
+            <div className="text-start mt-10 max-w-2xl px-2 pb-16  lg:max-w-7xl lg:px-8 lg:pb-24 sm:mx-16">
+              <div className=" col-span-2  lg:border-gray-200 pb-5 dark:text-gray-100">
                 <h1 className="text-2xl font-bold sm:text-2xl">
-                FashionMasters
+                  FashionMasters
                 </h1>
                 <h1 className="text-lg text-gray-500 tracking-wider">
-                Men's Formal Suit black
+                  Men's Formal Suit black
                 </h1>
               </div>
 
               {/* Options */}
               <div className="mt-5 lg:row-span-3 lg:mt-0">
                 <h2 className="sr-only">Product information</h2>
-                <div className="flex space-x-4 text-2xl">
+                <div className="flex space-x-4 gap-5 text-2xl">
                   <p className=" text-white font-semibold ">{product.price}</p>
-                  <p className=" opacity-50 line-through font-semibold ">{product.price}</p>
-                  <p className=" text-green-600 tracking-tight ">20%</p>
-                  </div>
-                
+                  <p className=" opacity-50 line-through font-semibold ">
+                    {product.price}
+                  </p>
+                  <p className=" text-green-600 tracking-tight ">20% off</p>
+                </div>
 
                 {/* Reviews */}
                 <div className="mt-6">
@@ -197,7 +142,7 @@ export default function ProductDetails() {
                   </div>
                 </div>
 
-                <form className="mt-10">
+                <form className="mt-5">
                   {/* Colors */}
                   <div>
                     <h3 className="text-sm font-medium ">Color</h3>
@@ -241,7 +186,7 @@ export default function ProductDetails() {
                   </div>
 
                   {/* Sizes */}
-                  <div className="mt-10">
+                  <div className="mt-2">
                     <div className="flex items-center justify-between">
                       <h3 className="text-sm font-medium ">Size</h3>
                       <a
@@ -271,7 +216,7 @@ export default function ProductDetails() {
                                 size.inStock
                                   ? "cursor-pointer bg-white  shadow-sm"
                                   : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                active ? "ring-2 ring-indigo-500" : "",
+                                active ? "ring-4 ring-indigo-700 text-indigo-500" : "",
                                 "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
                               )
                             }
@@ -286,7 +231,7 @@ export default function ProductDetails() {
                                     className={classNames(
                                       active ? "border" : "border-2",
                                       checked
-                                        ? "border-indigo-500"
+                                        ? "border-indigo-500 "
                                         : "border-transparent",
                                       "pointer-events-none absolute -inset-px rounded-md"
                                     )}
@@ -323,27 +268,19 @@ export default function ProductDetails() {
 
                   <button
                     type="submit"
-                    className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="mt-5 flex w-full btn btn-primary"
                   >
                     Add to bag
                   </button>
                 </form>
               </div>
 
-              <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+              <div className="py- lg:col-span-2 lg:col-start-1  lg:border-gray-200 lg:pt-2">
                 {/* Description and details */}
-                <div>
-                  <h3 className="sr-only">Description</h3>
-
-                  <div className="space-y-6">
-                    <p className="text-base ">{product.description}</p>
-                  </div>
-                </div>
-
-                <div className="mt-10">
+                <div className="">
                   <h3 className="text-sm font-medium ">Highlights</h3>
 
-                  <div className="mt-4">
+                  <div className="mt-2">
                     <ul
                       role="list"
                       className="list-disc space-y-2 pl-4 text-sm"
@@ -357,10 +294,10 @@ export default function ProductDetails() {
                   </div>
                 </div>
 
-                <div className="mt-10">
+                <div className="mt-2">
                   <h2 className="text-sm font-medium ">Details</h2>
 
-                  <div className="mt-4 space-y-6">
+                  <div className="mt-2 space-y-6">
                     <p className="text-sm text-gray-600">{product.details}</p>
                   </div>
                 </div>
@@ -373,29 +310,4 @@ export default function ProductDetails() {
   );
 }
 
-<div>
-  <div className="carousel w-full">
-    {product.images.map((item) => (
-      <div id="item1" className="carousel-item max-w-[30rem] max-h-[30rem]">
-        <img src={item.src} className="" />
-      </div>
-    ))}
-  </div>
-  <div className="flex justify-center w-full py-2 gap-2">
-    {product.images.map((item) => (
-      <a href="#item1" className="btn btn-xs">
-        1
-      </a>
-    ))}
-
-    <a href="#item2" className="btn btn-xs">
-      2
-    </a>
-    <a href="#item3" className="btn btn-xs">
-      3
-    </a>
-    <a href="#item4" className="btn btn-xs">
-      4
-    </a>
-  </div>
-</div>;
+{/*  */}
