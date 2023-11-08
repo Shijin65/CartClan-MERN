@@ -11,9 +11,9 @@ import { Routes as Switch,Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App m-0 -ms-5 ">
       <Navbar />
-      <div >
+      <div className="" >
         <Switch>
           <Route path="/" Component={ProductDetails}/>
         {/* <Route path="/" Component={Product}/> */}
