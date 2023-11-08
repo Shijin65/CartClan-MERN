@@ -1,12 +1,20 @@
-import { Fragment, useState } from "react";
+import React ,{ Fragment, useState } from "react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ProductData } from "../../../Data/DummyData";
+import ProductCard from "./ProductCard";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+
 import {
   Dialog,
   Disclosure,
   Menu,
-  RadioGroup,
   Transition,
 } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+
 import {
   ChevronDownIcon,
   FunnelIcon,
@@ -14,11 +22,10 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import { ProductData } from "../../../Data/DummyData";
-import ProductCard from "./ProductCard";
-import Radio from "@mui/material/Radio";
-import { FormControl, FormControlLabel, FormLabel } from "@mui/material";
-import {useLocation, useNavigate} from "react-router-dom"
+
+
+
+import { useLocation, useNavigate } from "react-router-dom";
 const sortOptions = [
   { name: "Most Popular", href: "#", current: false },
   { name: "Best Rating", href: "#", current: false },
@@ -31,16 +38,16 @@ const singlefilters = [
     id: "price",
     name: "Price",
     options: [
-      { value: "0-99", label: "$0 To $99", checked: false },
-      { value: "100-199", label: "$100 To $199", checked: false },
-      { value: "200-299", label: "$200 To $399", checked: false },
-      { value: "300-399", label: "$300 To $399", checked: false },
-      { value: "400-499", label: "$400 To $499", checked: false },
-      { value: "500", label: "$500-above", checked: false },
+      { value: "0-99", label: "$0 To $99" },
+      { value: "100-199", label: "$100 To $199" },
+      { value: "200-299", label: "$200 To $399" },
+      { value: "300-399", label: "$300 To $399" },
+      { value: "400-499", label: "$400 To $499"},
+      { value: "500", label: "$500-above" },
     ],
   },
   {
-    id: "discount range",
+    id: "discount",
     name: "Discount range",
     options: [
       { value: "10", label: "10% And Above", checked: true },
@@ -88,7 +95,13 @@ function classNames(...classes) {
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const location = useLocation();
-  const navigate =useNavigate()
+  const navigate = useNavigate();
+  const [value, setValue] = React.useState('female');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
 
 
   const removeSectionId = (sectionId) => {
@@ -100,24 +113,31 @@ export default function Product() {
 
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
-  
+
     let filterValue = searchParams.getAll(sectionId);
-  
+
     if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
       filterValue = filterValue[0].split(",").filter((item) => item !== value);
-  
+
       if (filterValue.length === 0) {
         searchParams.delete(sectionId); // Remove the sectionId from URL if filterValue is empty
       }
     } else {
       filterValue.push(value);
     }
-  
+
     if (filterValue.length > 0) {
       searchParams.set(sectionId, filterValue.join(","));
     }
-  
+
     const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
+
+  const radiobuttonfilterhandler =(e,sectionId)=>{
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set(sectionId,e.target.value)
+    const query=searchParams.toString();
     navigate({ search: `?${query}` });
   }
   return (
@@ -213,7 +233,6 @@ export default function Product() {
                                       type="checkbox"
                                       defaultChecked={option.checked}
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                     
                                     />
                                     <label
                                     // htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -236,7 +255,7 @@ export default function Product() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white ">  
+        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white ">
           <div className="flex justify-between  border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight ">New Arrivals</h1>
 
@@ -308,10 +327,8 @@ export default function Product() {
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
-                                
+
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 ">
-
-
               {/* Filters --------------------------------------------------------------------------*/}
 
               <form className="hidden lg:block ">
@@ -327,13 +344,19 @@ export default function Product() {
                       <>
                         <h3 className="-my-3 flow-root">
                           <Disclosure.Button className="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500">
-                            
-                            <FormLabel id="demo-radio-buttons-group-label"><span className="font-medium text-gray-400 ">{section.name}</span></FormLabel>
+                            <FormLabel id="demo-radio-buttons-group-label">
+                              <span className="font-medium text-gray-400 ">
+                                {section.name}
+                              </span>
+                            </FormLabel>
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
+                                  onClick={() => {
+                                    removeSectionId(section.id);
+                                  }}
                                 />
                               ) : (
                                 <PlusIcon
@@ -346,23 +369,24 @@ export default function Product() {
                         </h3>
 
                         <Disclosure.Panel className="pt-6 flex flex-col text-start">
-                          {section.options.map((option,optionIdx) => (
-                            <FormControl>
-                              <RadioGroup
-                                aria-labelledby="demo-radio-buttons-group-label"
-                                defaultValue="female"
-                                name="radio-buttons-group"
-                              >
+                          <FormControl>
+                            <span><RadioGroup
+                              aria-labelledby="demo-radio-buttons-group-label"
+                              
+                              name="radio-buttons-group"
+                            >
+                              {section.options.map((option,optionIdx) => (
+                                  <>
                                 <FormControlLabel
-                                
+                                onChange={(e)=>radiobuttonfilterhandler(e,section.id)}
                                   value={option.value}
                                   control={<Radio />}
                                   label={option.label}
                                 />
-                              </RadioGroup>
-                              
-                            </FormControl>
-                          ))}
+                                </>
+                              ))}
+                            </RadioGroup></span>
+                          </FormControl>
                         </Disclosure.Panel>
                       </>
                     )}
@@ -385,13 +409,14 @@ export default function Product() {
                                 <MinusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
-                                  onClick={()=>{removeSectionId(section.id)}}
+                                  onClick={() => {
+                                    removeSectionId(section.id);
+                                  }}
                                 />
                               ) : (
                                 <PlusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
-                                  
                                 />
                               )}
                             </span>
@@ -405,14 +430,15 @@ export default function Product() {
                                 className="flex items-center"
                               >
                                 <input
-                                 
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
                                   defaultValue=""
                                   type="checkbox"
                                   defaultChecked=""
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                  onChange={()=>handleFilter(option.value,section.id)}
+                                  onChange={() =>
+                                    handleFilter(option.value, section.id)
+                                  }
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -433,12 +459,12 @@ export default function Product() {
               {/* Product grid */}
               <div className="  col-span-3  ">
                 <span>
-                <div className="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-2 gap-5 ">
-                {ProductData.Dresses.map((Item) => (
-                  
-                  <ProductCard Product={Item} />
-                ))}
-                </div></span>
+                  <div className="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-2 gap-5 ">
+                    {ProductData.Dresses.map((Item) => (
+                      <ProductCard Product={Item} />
+                    ))}
+                  </div>
+                </span>
               </div>
             </div>
           </section>
