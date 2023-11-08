@@ -18,7 +18,7 @@ import { ProductData } from "../../../Data/DummyData";
 import ProductCard from "./ProductCard";
 import Radio from "@mui/material/Radio";
 import { FormControl, FormControlLabel, FormLabel } from "@mui/material";
-
+import {useLocation, useNavigate} from "react-router-dom"
 const sortOptions = [
   { name: "Most Popular", href: "#", current: false },
   { name: "Best Rating", href: "#", current: false },
@@ -87,7 +87,39 @@ function classNames(...classes) {
 
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const location = useLocation();
+  const navigate =useNavigate()
 
+
+  const removeSectionId = (sectionId) => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.delete(sectionId);
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
+
+  const handleFilter = (value, sectionId) => {
+    const searchParams = new URLSearchParams(location.search);
+  
+    let filterValue = searchParams.getAll(sectionId);
+  
+    if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
+      filterValue = filterValue[0].split(",").filter((item) => item !== value);
+  
+      if (filterValue.length === 0) {
+        searchParams.delete(sectionId); // Remove the sectionId from URL if filterValue is empty
+      }
+    } else {
+      filterValue.push(value);
+    }
+  
+    if (filterValue.length > 0) {
+      searchParams.set(sectionId, filterValue.join(","));
+    }
+  
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  }
   return (
     <div className=" mx-0">
       <div>
@@ -181,6 +213,7 @@ export default function Product() {
                                       type="checkbox"
                                       defaultChecked={option.checked}
                                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                     
                                     />
                                     <label
                                     // htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -203,7 +236,7 @@ export default function Product() {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white ">
+        <main className="mx-auto  px-4 sm:px-6 lg:px-8 mt-5 dark:text-white ">  
           <div className="flex justify-between  border-b border-gray-200 pb-6">
             <h1 className="text-4xl font-bold tracking-tight ">New Arrivals</h1>
 
@@ -277,7 +310,9 @@ export default function Product() {
             </h2>
                                 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 ">
-              {/* Filters */}
+
+
+              {/* Filters --------------------------------------------------------------------------*/}
 
               <form className="hidden lg:block ">
                 <h1 className="text-start  font-bold opacity-60">Filters</h1>
@@ -350,11 +385,13 @@ export default function Product() {
                                 <MinusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
+                                  onClick={()=>{removeSectionId(section.id)}}
                                 />
                               ) : (
                                 <PlusIcon
                                   className="h-5 w-5"
                                   aria-hidden="true"
+                                  
                                 />
                               )}
                             </span>
@@ -368,12 +405,14 @@ export default function Product() {
                                 className="flex items-center"
                               >
                                 <input
+                                 
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
-                                  defaultValue={option.value}
+                                  defaultValue=""
                                   type="checkbox"
-                                  defaultChecked={option.checked}
+                                  defaultChecked=""
                                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                  onChange={()=>handleFilter(option.value,section.id)}
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
