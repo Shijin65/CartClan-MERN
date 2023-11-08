@@ -11,7 +11,7 @@ import { Routes as Switch,Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App m-0 -ms-5 ">
+    <div className="App m-0  ">
       <Navbar />
       <div className="" >
         <Switch>

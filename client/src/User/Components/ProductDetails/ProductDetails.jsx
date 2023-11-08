@@ -72,14 +72,14 @@ export default function ProductDetails() {
           <section className="grid grid-cols-1 lg:grid-cols-2 ">
             {/* Image gallery */}
             <span>
-              <div className="p-5 carousel max-w-[30rem] max-h-[35rem]">
+              <div className="p-10 carousel max-w-[30rem] max-h-[35rem]">
                 {product.images.map((item) => (
-                  <div id={item.id} className="p-5 carousel-item w-full">
+                  <div id={item.id} className="p-10 carousel-item w-full">
                     <img src={item.src} className="w-full" />
                   </div>
                 ))}
               </div>
-              <div className="flex justify-center w-full gap-10">
+              <div className="flex justify-center w-full gap-5 -mt-10">
                 {product.images.map((item) => (
                   <a href={`#${item.id}`} className="">
                     <div className=" max-w-[5rem] h-[5rem] mt-10 ">
@@ -95,7 +95,7 @@ export default function ProductDetails() {
             </span>
 
             {/* Product info */}
-            <div className="text-start mt-10 max-w-2xl px-2 pb-16  lg:max-w-7xl lg:px-8 lg:pb-24 sm:mx-16">
+            <div className="text-start mt-10 max-w-2xl px-2 pb-16 px-8 lg:max-w-7xl lg:px-8 lg:pb-24 sm:mx-16">
               <div className=" col-span-2  lg:border-gray-200 pb-5 dark:text-gray-100">
                 <h1 className="text-2xl font-bold sm:text-2xl">
                   FashionMasters
@@ -303,6 +303,12 @@ export default function ProductDetails() {
                 </div>
               </div>
             </div>
+          </section>
+          
+
+          {/* review section */}
+          <section>
+                        
           </section>
         </div>
       </div>
