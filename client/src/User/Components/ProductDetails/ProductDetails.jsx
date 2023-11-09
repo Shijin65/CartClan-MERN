@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
+import ProductReview from "./ProductReview";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -95,7 +96,7 @@ export default function ProductDetails() {
             </span>
 
             {/* Product info */}
-            <div className="text-start mt-10 max-w-2xl px-2 pb-16 px-8 lg:max-w-7xl lg:px-8 lg:pb-24 sm:mx-16">
+            <div className="text-start mt-10 max-w-2xl pb-16 px-8 lg:max-w-7xl lg:px-8 lg:pb-24 sm:mx-16">
               <div className=" col-span-2  lg:border-gray-200 pb-5 dark:text-gray-100">
                 <h1 className="text-2xl font-bold sm:text-2xl">
                   FashionMasters
@@ -308,7 +309,7 @@ export default function ProductDetails() {
 
           {/* review section */}
           <section>
-                        
+                   <ProductReview/>     
           </section>
         </div>
       </div>
