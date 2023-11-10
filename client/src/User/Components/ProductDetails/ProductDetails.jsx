@@ -311,14 +311,16 @@ export default function ProductDetails() {
           </section>
 
           {/* review section */}
-          <section>
+          <section><div className="text-center font-bold text-4xl mb-10 ">Customer reviews</div>
             <Grid container>
-              <Grid item xs={5}>
+            
+              <Grid item md={5} sm={12}>
                 <ProductReview />
               </Grid>
-              <Grid item xs={7}>
-                <div className="flex flex-col">
-                  <ProductReviewCard/>
+              <Grid item md={7} sm={12}>
+                <div className="flex flex-col md:px-5 px-5 ">
+                  {[1,1,1,1,1].map((review)=><ProductReviewCard/>)}
+                 
                 </div>
               </Grid>
             </Grid>

@@ -20,13 +20,13 @@ function ProductReview() {
         <section>
       <Grid container className="p-10">
         <Grid item >
-          <div className="text-start font-bold text-2xl ">Customer reviews</div>
+          <div className="text-start font-bold text-2xl ">overall reviews</div>
 
           <Grid container className="text-lg font-bold mt-5">
-            <Grid item xs={3}>
+            <Grid item xs={5} md={3}>
               <Rating name="read-only" value={5} readOnly />
             </Grid>
-            <Grid item xs={2} className="text-start">
+            <Grid item xs={3} md={2} className="text-start">
               <p>GOOD</p>
             </Grid>
           </Grid>
