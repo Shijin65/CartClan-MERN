@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import ProductReview from "./ProductReview";
+import { Grid } from "@mui/material";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -309,7 +310,17 @@ export default function ProductDetails() {
 
           {/* review section */}
           <section>
-                   <ProductReview/>     
+                    <Grid container>
+                    <Grid item xs={5}>
+                      <ProductReview/>
+                      </Grid>
+                      <Grid>
+                      <div>
+
+                      </div>
+                    </Grid>
+                    </Grid>
+                        
           </section>
         </div>
       </div>
