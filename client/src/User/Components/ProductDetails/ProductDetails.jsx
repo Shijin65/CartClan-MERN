@@ -3,6 +3,7 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import ProductReview from "./ProductReview";
 import { Grid } from "@mui/material";
+import ProductReviewCard from "./ProductReviewCard";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -218,7 +219,9 @@ export default function ProductDetails() {
                                 size.inStock
                                   ? "cursor-pointer bg-white  shadow-sm"
                                   : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                active ? "ring-4 ring-indigo-700 text-indigo-500" : "",
+                                active
+                                  ? "ring-4 ring-indigo-700 text-indigo-500"
+                                  : "",
                                 "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
                               )
                             }
@@ -306,21 +309,19 @@ export default function ProductDetails() {
               </div>
             </div>
           </section>
-          
 
           {/* review section */}
           <section>
-                    <Grid container>
-                    <Grid item xs={5}>
-                      <ProductReview/>
-                      </Grid>
-                      <Grid>
-                      <div>
-
-                      </div>
-                    </Grid>
-                    </Grid>
-                        
+            <Grid container>
+              <Grid item xs={5}>
+                <ProductReview />
+              </Grid>
+              <Grid item xs={7}>
+                <div className="flex flex-col">
+                  <ProductReviewCard/>
+                </div>
+              </Grid>
+            </Grid>
           </section>
         </div>
       </div>
@@ -328,4 +329,6 @@ export default function ProductDetails() {
   );
 }
 
-{/*  */}
+{
+  /*  */
+}

@@ -19,7 +19,7 @@ function ProductReview() {
     <div>
         <section>
       <Grid container className="p-10">
-        <Grid item xs={5}>
+        <Grid item >
           <div className="text-start font-bold text-2xl ">Customer reviews</div>
 
           <Grid container className="text-lg font-bold mt-5">
@@ -93,9 +93,6 @@ function ProductReview() {
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={7}>
-          <div className="text-start"> review section</div>
         </Grid>
       </Grid></section>
 
