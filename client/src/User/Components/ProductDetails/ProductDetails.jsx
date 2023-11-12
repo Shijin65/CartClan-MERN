@@ -4,6 +4,8 @@ import { RadioGroup } from "@headlessui/react";
 import ProductReview from "./ProductReview";
 import { Grid } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
+import SimilarCard from "./SimilarCard";
+import { ProductData } from "../../../Data/DummyData";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -56,7 +58,7 @@ const product = {
   ],
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-};
+}
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
 function classNames(...classes) {
@@ -324,6 +326,14 @@ export default function ProductDetails() {
                 </div>
               </Grid>
             </Grid>
+          </section>
+
+          {/* similer product section  */}
+          <section className="m-10 mb-5 ">
+            <h1 className="text-center font-bold text-4xl mb-10">Similer Product</h1>
+            <div className="flex flex-wrap gap-5 justify-center">
+               {ProductData.Dresses.map((item)=><SimilarCard product={item}/>)  }
+            </div>
           </section>
         </div>
       </div>
