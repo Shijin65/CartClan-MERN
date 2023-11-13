@@ -1,5 +1,6 @@
 
 import "./App.css";
+import Cart from "./User/Components/Cart/Cart";
 import Footer from "./User/Components/Footer/Footer";
 import Navbar from "./User/Components/Navbar/Navbar";
 import ProductDetails from "./User/Components/ProductDetails/ProductDetails";
@@ -15,7 +16,9 @@ function App() {
       <Navbar />
       <div className="" >
         <Switch>
-          <Route path="/" Component={ProductDetails}/>
+        <Route path="/" Component={Cart}/>
+
+          {/* <Route path="/" Component={ProductDetails}/> */}
         {/* <Route path="/" Component={Product}/> */}
         {/* <Route path="/register" Component={Register}/> */}
         {/* <Route path="/product" Component={Product}/> */}
