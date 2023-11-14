@@ -8,11 +8,11 @@ function Cart() {
       
         <h1 className="text-start text-2xl sm:text-5xl font-bold sm:mb-10">shoping cart</h1>
         <Grid container >
-          <Grid item md={7} sm={12} sx={12}>
+          <Grid item md={7} sm={12} xs={12}>
             <CartItem />
             <CartItem />
           </Grid>
-          <Grid item md={5}  sm={12} sx={12}>
+          <Grid item md={5}  sm={12} xs={12}>
             <h1>order summary</h1>
           </Grid>
         </Grid>

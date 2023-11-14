@@ -9,7 +9,7 @@ import HomePage from "./User/Pages/Home/HomePage";
 import Login from "./User/Pages/Login/Login";
 import Register from "./User/Pages/Register/Register";
 import { Routes as Switch,Route } from "react-router-dom";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material";
 function App() {
   return (
     <div className="App m-0  ">
