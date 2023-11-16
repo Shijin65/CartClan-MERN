@@ -4,7 +4,8 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 function CartItem() {
   return (
     
-        
+        <div>
+          <div className='text-right '><button className="btn btn-sm btn-circle btn-ghost mt-2 me-4">✕</button></div>
         <div className='flex justify-evenly border-b-2 py-5 gap-2 '>
           <div className='md:h-[12rem] md:w-[12rem] w-[6rem]'><img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg" alt="" srcset="" className='h-full w-full'/></div>
           <div className='flex flex-col justify-between text-start'>
@@ -29,7 +30,8 @@ function CartItem() {
             </div>
           </div>
           
-          <div><h1>X</h1></div>
+          
+        </div>
         </div>
     
   )
