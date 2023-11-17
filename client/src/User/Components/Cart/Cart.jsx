@@ -36,7 +36,7 @@ function Cart() {
               <h1>$112.32</h1>
             </div>
             <div>
-              <button className="btn btn-primary w-full ">Checkout</button>
+              <button className="btn btn-primary w-full lowercase">Checkout</button>
             </div>
           </div>
         </Grid>
