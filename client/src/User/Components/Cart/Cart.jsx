@@ -8,7 +8,7 @@ const cartsummery = [
 ];
 function Cart() {
   return (
-    <div className="md:m-10 md:p-10 p-5  md:border-2 rounded-md">
+    <div className="md:m-10 md:p-10 p-5  md:border-2 rounded-md flex flex-wrap">
       <h1 className="text-start text-2xl sm:text-5xl font-bold sm:mb-10">
         shoping cart
       </h1>
@@ -18,7 +18,7 @@ function Cart() {
           <CartItem />
         </Grid>
         <Grid item md={5} sm={12} xs={12}>
-          <div className="w-full bg-slate-300 rounded-lg mx-5 text-black p-5 md:p-10 max-w-[500px]">
+          <div className=" bg-slate-300 rounded-lg  text-black p-5 md:p-10 min-w-[330px] mt-5 max-w-[500px] ">
             <div>
               <h1 className="text-lg text-start font-bold py-5">
                 Order Summary

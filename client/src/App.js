@@ -10,13 +10,14 @@ import Login from "./User/Pages/Login/Login";
 import Register from "./User/Pages/Register/Register";
 import { Routes as Switch,Route } from "react-router-dom";
 import Grid from "@mui/material";
+import Checkout from "./User/Components/Checkout/CheckOut";
 function App() {
   return (
     <div className="App m-0  ">
       <Navbar />
       <div className="" >
         <Switch>
-        <Route path="/" Component={Cart}/>
+        <Route path="/" Component={Checkout}/>
 
           {/* <Route path="/" Component={ProductDetails}/> */}
         {/* <Route path="/" Component={Product}/> */}
