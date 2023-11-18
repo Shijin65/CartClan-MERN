@@ -4,11 +4,11 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 function CartItem() {
   const [count, setcount] = useState(1);
   return (
-    <div>
+    <div className="mt-5 me-5 border-gray-500 border-t-2">
       <div className="text-right ">
-        <button className="btn btn-sm btn-circle btn-ghost mt-2 me-4">✕</button>
+        <button className="btn btn-sm btn-circle btn-ghost ">✕</button>
       </div>
-      <div className="flex justify-evenly border-b-2 py-5 gap-2 ">
+      <div className="flex border-b-2 border-gray-500 pb-5 gap-5 ps-5  ">
         <div className="md:h-[12rem] md:w-[12rem] w-[6rem]">
           <img
             src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg"

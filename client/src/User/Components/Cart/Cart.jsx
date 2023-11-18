@@ -24,13 +24,13 @@ function Cart() {
                 Order Summary
               </h1>
             </div>
-
+            <div className="border-b-2 text-gray-500">
             {cartsummery.map((item) => (
-              <div className="flex justify-between border-b-2 py-2 border- text-gray-500">
+              <div className="flex justify-between  py-2  ">
                 <h1>{item.title}</h1>
                 <h1>${item.amount}</h1>
               </div>
-            ))}
+            ))}</div>
             <div className="flex justify-between  py-2 border-black font-semibold mt-2 mb-5">
               <h1>Order total</h1>
               <h1>$112.32</h1>
