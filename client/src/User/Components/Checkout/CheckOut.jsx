@@ -15,21 +15,11 @@ export default function Checkout() {
   
 
   const handleNext = () => {
-    
-    
-
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleSkip = () => {
-   
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleReset = () => {
@@ -37,7 +27,7 @@ export default function Checkout() {
   };
 
   return (
-    <Box  sx={{ width: '100%', color:"white"}}>
+    <Box  sx={{ width: '100%'}}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
