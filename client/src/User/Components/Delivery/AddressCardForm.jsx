@@ -3,20 +3,20 @@ import React from 'react'
 
 const AddressCardForm = () => {
     return (
-        <div className='dark:text-white border rounded-s-md'>
+        <div className='dark:text-white border rounded-s-md p-2 '>
             Delivery Form
             <form >
                 <Grid container className=' dark:text-white pt-5' spacing={3}>
 
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} color={'white'} >
                     <TextField
                         fullWidth
                         name='firstname'
                         id='firstname'
-                        // placeholder='FirstName'
                         label="First Name" 
+                        sx={{   input: {color: 'white'},
+                                label: { color: 'white'}}}
                         
-                         
                         
                     />
                 </Grid>
@@ -25,9 +25,10 @@ const AddressCardForm = () => {
                         fullWidth
                         name='lastname'
                         id='lastname'
-                        
+                        border="white"
                         label="Last Name" 
-                        color="" 
+                        sx={{   input: {color: 'white'},
+                                label: { color: 'white'}}}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -37,7 +38,8 @@ const AddressCardForm = () => {
                         id='Address'
                         label="Address" 
                         rows={4}
-                        color="" 
+                        sx={{   input: {color: 'white'},
+                                label: { color: 'white'}}}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -46,7 +48,8 @@ const AddressCardForm = () => {
                         name='State'
                         id='State'
                         label="State" 
-                        color="" 
+                        sx={{   input: {color: 'white'},
+                                label: { color: 'white'}}}
                     />
                 </Grid><Grid item xs={12} sm={6}>
                     <TextField
@@ -54,7 +57,9 @@ const AddressCardForm = () => {
                         name='City'
                         id='City'
                         label="City" 
-                        color="" 
+                        sx={{   input: {color: 'white'},
+                                borderColor:{color: 'white',},
+                                label: { color: 'white'}}}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -63,7 +68,8 @@ const AddressCardForm = () => {
                         name='Zipcode'
                         id='Zipcode'
                         label="ZipCode" 
-                        color="" 
+                        sx={{   input: {color: 'white'},
+                                label: { color: 'white'}}}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -72,7 +78,8 @@ const AddressCardForm = () => {
                         name='Number'
                         id='Number'
                         label="Number" 
-                        color="" 
+                        sx={{   input: {color: 'white'},
+                                label: { color: 'white'}}}
                        
                     />
                 </Grid>
